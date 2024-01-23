@@ -1,25 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Index</title>
-</head>
-<body>
 
-    <div id="app">
-        <button @click="kurang">-</button>
-        {{ count }}
-        <button @click="tambah">+</button>
-    </div>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Index</title>
+    </head>
 
-    <script type="module">
-       import {createApp} from 'https://unpkg.com/vue@3/dist/vue.esm-browser.js'
+    <body>
+
+        <div id="app">
+            <div>
+                {{ count }} 
+            </div>
+            <div>
+                {{ message }} 
+            </div>
+            <div v-text="message"></div>
+            <div v-text="message2">
+                ini adalah random text
+            </div>
+            <div v-html="message3">
+              
+            </div>
+        </div>
+
+        <script type="module">
+        import {createApp} from 'https://unpkg.com/vue@3/dist/vue.esm-browser.js'
 
         createApp({
             data() {
                 return {
-                    count:0
+                    count:0,
+                    message: 'Hello world!',
+                    message2: 'ini akan me-replace text',
+                    message3: '<strong>ini tulisan bold</strong>',
                 }
             },
             methods: {
@@ -32,5 +47,6 @@
             }
         }).mount('#app')
     </script>
-</body>
+    </body>
+
 </html>
