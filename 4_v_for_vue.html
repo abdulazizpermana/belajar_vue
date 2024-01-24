@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Index</title>
+</head>
+
+<body>
+    <div id="app">
+        <!-- // Looping biasa -->
+        <!-- <div v-for="angka in 10">
+            {{ angka }}
+        </div>
+        <ul v-for="angka in 10">
+            <li> {{ angka }}</li>
+        </ul> -->
+
+
+        <!-- // Looping array -->
+        <ul v-for="(whatever , index) in fruits">
+            <li>{{ whatever }} {{ index }} <button @click="hapus(index)">X</button></li>
+        </ul>
+
+
+        <!-- // Looping array object -->
+        <ul v-for="player in footbalPlayer">
+            <li>{{ player.name }} - {{ player.position }}</li>
+        </ul>
+    </div>
+
+    <script type="module">
+        import { createApp } from "https://unpkg.com/vue@3/dist/vue.esm-browser.js";
+
+        createApp({
+            data() {
+                return {
+                    fruits: ['apple', 'mango','melon', 'banana', 'orange'],
+                    footbalPlayer: [
+                        {name: 'messi', position: 'forward'},
+                        {name: 'penaldo', position: 'center forward'},
+                        {name: 'kostik', position: 'center back'},
+                        {name: 'ramos', position: 'defender'},
+                        {name: 'modrik', position: 'middle'},
+                    ]
+                };
+            },
+            methods: {
+                hapus(index){
+                    this.fruits.splice(index, 1)
+                }
+            }
+        }).mount("#app");
+    </script>
+</body>
+
+</html>
