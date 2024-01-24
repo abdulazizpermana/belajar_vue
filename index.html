@@ -1,52 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
 
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Index</title>
-    </head>
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Index</title>
+</head>
 
-    <body>
+<body>
+    <div id="app">
+        <span v-if="tampil"> {{ message }} </span>
+        <span v-else-if=""> </span>
+        <span v-else> message tidak ditampilkan </span>
 
-        <div id="app">
-            <div>
-                {{ count }} 
-            </div>
-            <div>
-                {{ message }} 
-            </div>
-            <div v-text="message"></div>
-            <div v-text="message2">
-                ini adalah random text
-            </div>
-            <div v-html="message3">
-              
-            </div>
-        </div>
+        <div v-if="nilai > 8">Predikan A+</div>
+        <div v-else-if="nilai <= 8 && nilai > 6">Predikat B</div>
+        <div v-else>Predikat C</div>
+    </div>
 
-        <script type="module">
-        import {createApp} from 'https://unpkg.com/vue@3/dist/vue.esm-browser.js'
+    <script type="module">
+        import { createApp } from "https://unpkg.com/vue@3/dist/vue.esm-browser.js";
 
         createApp({
             data() {
                 return {
-                    count:0,
-                    message: 'Hello world!',
-                    message2: 'ini akan me-replace text',
-                    message3: '<strong>ini tulisan bold</strong>',
-                }
+                    message: "Hello world",
+                    tampil: false,
+                    nilai: 7,
+                };
             },
-            methods: {
-                tambah() {
-                    this.count ++
-                },
-                kurang() {
-                    this.count --
-                },
-            }
-        }).mount('#app')
+            methods: {},
+        }).mount("#app");
     </script>
-    </body>
+</body>
 
 </html>
