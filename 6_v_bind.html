@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Index</title>
+    </head>
+
+    <style>
+        #textbiru{
+            color: aqua;
+        }
+    </style>
+
+    <body>
+
+        <div id="app">
+            <!-- <a v-bind:href="url">Google</a> -->
+            <h2>User</h2>
+            <div :id="selectedID">
+                name : {{ user.name }}
+            </div>
+            <div>
+                <img v-bind:src="user.image" v-bind:style="{width: responsiveWidth}" alt="">
+            </div>
+        </div>
+
+        <script type="module">
+        import {createApp} from 'https://unpkg.com/vue@3/dist/vue.esm-browser.js'
+
+        createApp({
+            data() {
+                return {
+                    // url: 'https://google.com'
+                user: {
+                    name: 'silat',
+                    image: 'https://imsport.tv/wp-content/uploads/2023/10/DKI-Jakarta-Juara-Umum-Kickboxing-IMAG-2023.jpg'
+                },
+                responsiveWidth: '500px',
+                selectedID: 'textbiru'
+                }
+            },
+            methods: {
+            }
+        }).mount('#app')
+    </script>
+    </body>
+
+</html>
